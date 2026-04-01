@@ -1,6 +1,6 @@
 # Finance Data Processing and Access Control Backend
 
-This project is a backend system for a finance dashboard application where users interact with financial records based on their roles. It includes secure role-based access control, financial record management, and a clean backend structure.
+This project is a backend system for a finance dashboard application where users interact with financial records based on their roles. The system supports secure role-based access, financial data management, and dashboard-level analytics.
 
 ---
 
@@ -22,8 +22,8 @@ This project is a backend system for a finance dashboard application where users
 * Express.js
 * MongoDB
 * Mongoose
-* JWT Authentication
-* REST API
+* REST APIs
+* JWT Authentication (optional enhancement)
 
 ---
 
@@ -32,12 +32,13 @@ This project is a backend system for a finance dashboard application where users
 ```
 finance-backend/
 │
-├── config/
-├── controllers/
-├── middleware/
-├── models/
-├── routes/
-├── app.js
+├── config/           # Database configuration
+├── controllers/      # Business logic
+├── middleware/       # Role-based access control
+├── models/           # Database schemas
+├── routes/           # API routes
+│
+├── app.js            # Main server file
 └── package.json
 ```
 
@@ -47,10 +48,20 @@ finance-backend/
 
 ### Financial Records
 
-POST /api/records
-GET /api/records
-PUT /api/records/:id
-DELETE /api/records/:id
+| Method | Endpoint         | Description         |
+| ------ | ---------------- | ------------------- |
+| POST   | /api/records     | Create a new record |
+| GET    | /api/records     | Get all records     |
+| PUT    | /api/records/:id | Update a record     |
+| DELETE | /api/records/:id | Delete a record     |
+
+---
+
+### Dashboard
+
+| Method | Endpoint               | Description                            |
+| ------ | ---------------------- | -------------------------------------- |
+| GET    | /api/dashboard/summary | Get total income, expense, and balance |
 
 ---
 
@@ -78,6 +89,24 @@ npm run dev
 
 ---
 
+### Server will run on
+
+```
+http://localhost:5000
+```
+
+---
+
 ## Project Purpose
 
-This project demonstrates how to build a secure backend using Node.js, Express, and MongoDB with role-based access control and clean architecture.
+This project demonstrates how to build a backend using Node.js, Express, and MongoDB with role-based access control and clean architecture. It focuses on backend design, API structure, data modeling, and access control logic.
+
+---
+
+## Future Improvements
+
+* JWT-based authentication
+* Pagination for records
+* Category-wise analytics
+* Monthly trends API
+* Input validation using middleware
